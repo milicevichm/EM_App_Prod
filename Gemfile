@@ -3,9 +3,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-
 #bundle bootstrap for CSS layout
 gem 'bootstrap-sass','3.2.0.0'
+#sidekiq for background processing
+gem 'sidekiq', '~> 3.3.2'
 #add HDF file reading capability
 gem 'hdf5', '~> 0.3'
 #user chartkick gem for producing charts
