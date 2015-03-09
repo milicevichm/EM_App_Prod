@@ -10,6 +10,8 @@ gem 'bootstrap-sass','3.2.0.0'
 gem 'hdf5', '~> 0.3'
 #user chartkick gem for producing charts
 gem 'chartkick', '~> 1.3.2'
+#python interpreter bridge for running disaggregation script
+gem 'rubypython', '~> 0.6.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
