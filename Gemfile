@@ -8,6 +8,8 @@ gem 'rails', '4.2.0'
 gem 'bootstrap-sass','3.2.0.0'
 #add HDF file reading capability
 gem 'hdf5', '~> 0.3'
+#user chartkick gem for producing charts
+gem 'chartkick', '~> 1.3.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
