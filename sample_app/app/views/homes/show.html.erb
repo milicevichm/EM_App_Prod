@@ -1,0 +1,9 @@
+<div class="row">
+
+  <!-- Line Chart - Single Series -->
+  <div class="col-xs-6">
+    <h3>Visits By Day</h3>
+    <%= line_chart @visits.group_by_day(:visited_at, format: "%B %d, %Y").count, discrete: true %>
+  </div>
+
+</div>
