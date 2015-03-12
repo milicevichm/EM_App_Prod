@@ -8,7 +8,7 @@ gem 'bootstrap-sass','3.2.0.0'
 #sidekiq for background processing
 gem 'sidekiq', '~> 3.3.2'
 #add HDF file reading capability
-gem 'hdf5', '~> 0.3'
+#gem 'hdf5', '~> 0.3'
 #user chartkick gem for producing charts
 gem 'chartkick', '~> 1.3.2'
 #python interpreter bridge for running disaggregation script
@@ -51,9 +51,9 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  #gem 'spring'
 end
 
 group :production do
-  gem 'pg'
+  #gem 'pg'
 end
