@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    exec('python interpreter.py')
+    RubyPython.start
   end
 
   def about
