@@ -8,9 +8,11 @@ gem 'bootstrap-sass','3.2.0.0'
 #sidekiq for background processing
 gem 'sidekiq', '~> 3.3.2'
 #add HDF file reading capability
-gem 'hdf5', '~> 0.3'
+#gem 'hdf5'
 #user chartkick gem for producing charts
-gem 'chartkick', '~> 1.3.2'
+gem 'chartkick'
+gem 'tzinfo-data'
+gem 'coffee-script-source', '1.8.0'
 #python interpreter bridge for running disaggregation script
 gem 'rubypython', '~> 0.6.3'
 # Use sqlite3 as the database for Active Record

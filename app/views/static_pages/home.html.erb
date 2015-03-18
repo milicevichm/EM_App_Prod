@@ -8,20 +8,13 @@
 
   <h2>This is the home page for the design project of Group 20 in ECSE 457.</h2>
 
+  <%= column_chart({"ABC" => 5, "LMN" => 4, "XYZ" => 7}) %>
+
   <body>
 
 
     <div style="height: 400px; clear: both;"></div>
-	
-	<%= line_chart({20.day.ago => 5, 1368174456 => 4, "2013-05-07 00:00:00 UTC" => 7}) %>
-    
-    <%= pie_chart({"Football" => 10, "Basketball" => 5}) %>
 
-    <%= timeline [
-      ["Washington", "1789-04-29", "1797-03-03"],
-      ["Adams", "1797-03-03", "1801-03-03"],
-      ["Jefferson", "1801-03-03", "1809-03-03"]
-    ] %>
 
   </body>
 
