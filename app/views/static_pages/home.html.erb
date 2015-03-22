@@ -15,9 +15,9 @@
 
 
     <div id="charts">
-      <%= area_chart(@mains_small, {library:{hAxis:{title:"Time"}, vAxis:{title:"Apparent Power [VA]"}, title:"Building Mains Power"}} )%>
+      <%= area_chart(MAINS_CSV, {library:{hAxis:{title:"Time"}, vAxis:{title:"Apparent Power [VA]"}, title:"Building Mains Power"}} )%>
 
-      <%= area_chart({"1/1/2015" => 0, "2/1/2015" => 10, "3/1/2015" => 2},
+      <%= area_chart(DISAG_CSV,
                      {library:{hAxis:{title:"Time"}, vAxis:{title:"Apparent Power [VA]"}, title:"Disaggregated Appliance Power"}} )%>
     </div>
 
