@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   get 'static_pages/about'
 
-  root 'static_pages#home'
+  root 'power_forms#new'
 
 end
