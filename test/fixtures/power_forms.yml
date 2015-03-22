@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  appliance: MyString
+  starttime: 2015-03-21 23:36:14
+  endtime: 2015-03-21 23:36:14
+
+two:
+  appliance: MyString
+  starttime: 2015-03-21 23:36:14
+  endtime: 2015-03-21 23:36:14

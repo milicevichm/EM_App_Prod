@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Power Forms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Appliance</th>
+      <th>Starttime</th>
+      <th>Endtime</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @power_forms.each do |power_form| %>
+      <tr>
+        <td><%= power_form.appliance %></td>
+        <td><%= power_form.starttime %></td>
+        <td><%= power_form.endtime %></td>
+        <td><%= link_to 'Show', power_form %></td>
+        <td><%= link_to 'Edit', edit_power_form_path(power_form) %></td>
+        <td><%= link_to 'Destroy', power_form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Power form', new_power_form_path %>

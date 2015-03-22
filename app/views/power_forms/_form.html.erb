@@ -1,0 +1,29 @@
+<%= form_for(@power_form) do |f| %>
+  <% if @power_form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@power_form.errors.count, "error") %> prohibited this power_form from being saved:</h2>
+
+      <ul>
+      <% @power_form.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :appliance %><br>
+    <%= f.select :appliance, options_for_select([["Fridge", "fridge"], ["Dish Washer", "dish washer"], ["Washer Dryer", "washer dryer"], ["Electric Oven", "electric oven"]]) %>
+  </div>
+  <div class="field">
+    <%= f.label :starttime %><br>
+    <%= f.datetime_select :starttime %>
+  </div>
+  <div class="field">
+    <%= f.label :endtime %><br>
+    <%= f.datetime_select :endtime %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

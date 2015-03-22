@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Appliance:</strong>
+  <%= @power_form.appliance %>
+</p>
+
+<p>
+  <strong>Starttime:</strong>
+  <%= @power_form.starttime %>
+</p>
+
+<p>
+  <strong>Endtime:</strong>
+  <%= @power_form.endtime %>
+</p>
+
+<p>
+  <%= column_chart({@power_form.starttime => 5, @power_form.endtime => 7}) %>
+</p>
+
+<%= link_to 'Edit', edit_power_form_path(@power_form) %> |
+<%= link_to 'Back', power_forms_path %>
