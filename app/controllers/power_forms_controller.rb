@@ -2,6 +2,7 @@ class PowerFormsController < ApplicationController
   before_action :set_power_form, only: [:show, :edit, :update, :destroy]
 
   #rails generate scaffold PowerForm appliance:string starttime:datetime endtime:datetime
+  #bundle exec rake db:migrate
   #http://localhost:3000/power_forms/new
   # GET /power_forms
   # GET /power_forms.json
