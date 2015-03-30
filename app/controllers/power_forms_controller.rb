@@ -16,7 +16,7 @@ class PowerFormsController < ApplicationController
     appliance = @power_form.appliance
     tstart = @power_form.tstart.strftime("%Y%m%d-%H%M")
     tend = @power_form.tend.strftime("%Y%m%d-%H%M")
-    call = "python script.py "+appliance+" "+tstart+" "+tend
+    call = "/home/group20/anaconda/bin/python2.7 script.py "+appliance+" "+tstart+" "+tend
     system(call)
 
     #load parameters here
