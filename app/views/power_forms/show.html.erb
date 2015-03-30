@@ -1,19 +1,48 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "Home") %>
 
-<p>
-  <strong>Appliance:</strong>
-  <%= @power_form.appliance %>
-</p>
+<div id = 'wrap'>
 
-<p>
-  <strong>Tstart:</strong>
-  <%= @power_form.tstart %>
-</p>
+  <div class="center">
 
-<p>
-  <strong>Tend:</strong>
-  <%= @power_form.tend %>
-</p>
+    <h1>Energy Management through Power Disaggregation</h1>
 
-<%= link_to 'Edit', edit_power_form_path(@power_form) %> |
-<%= link_to 'Back', power_forms_path %>
+    <div style="height: 30px; clear: both;"></div>
+
+    <h2>This is the home page for the design project of Group 20 in ECSE 457.</h2>
+
+    <body>
+
+
+
+    <div id="charts">
+
+      <%= area_chart(@mains, {library:{hAxis:{title:"Time"}, vAxis:{title:"Apparent Power [VA]"}, title:"Building Mains Power"}} )%>
+
+      <%= area_chart(@disag, {library:{hAxis:{title:"Time"}, vAxis:{title:"Apparent Power [VA]"}, title: @chart_title}} )%>
+
+    </div>
+
+    <div id="l_metrics">
+
+      left
+
+      <div style="height: 265px; clear: both;"></div>
+
+    </div>
+
+    <div id = "r_metrics">
+
+      right
+
+      <div style="height: 265px; clear: both;"></div>
+
+    </div>
+
+    </body>
+
+  </div>
+
+</div>
+
+<div id = "back_link"><%= link_to 'Back', power_forms_path %></div>
+

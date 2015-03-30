@@ -116,17 +116,25 @@ footer ul li {
 /* home page */
 
 #charts{
-  float:left;
-  width: 700px;
+  width: 1200px;
 }
 
-#input_form{
-  float:right;
-  width: 400px;
-  text-align: justify;
-}
+
 
 #wrap{
 
   //width: 1100px;
+}
+
+#l_metrics{
+
+  float: left;
+  width: 550px;
+
+}
+
+#r_metrics{
+
+  float: right;
+  width: 550px;
 }

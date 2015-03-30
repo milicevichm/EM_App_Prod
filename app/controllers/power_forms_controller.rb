@@ -10,6 +10,26 @@ class PowerFormsController < ApplicationController
   # GET /power_forms/1
   # GET /power_forms/1.json
   def show
+    #run code here
+    require 'csv'
+
+    appliance = @power_form.appliance
+    tstart = @power_form.tstart.strftime("%Y%m%d-%H%M")
+    tend = @power_form.tend.strftime("%Y%m%d-%H%M")
+    call = "/home/mike/anaconda/bin/python2.7 script.py "+appliance+" "+tstart+" "+tend
+    system(call)
+
+    #load parameters here
+    disag = CSV.read('/home/mike/workspace/data/disag_output.csv')
+    disag_hash = Hash[disag]
+    @disag = disag_hash
+
+    mains = CSV.read('/home/mike/workspace/data/mains_sum.csv')
+    mains_hash = Hash[mains]
+    @mains = mains_hash
+
+    @chart_title = "Disaggregated "+@power_form.appliance.gsub("_"," ").capitalize+" Power"
+
   end
 
   # GET /power_forms/new
