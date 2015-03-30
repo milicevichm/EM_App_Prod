@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  appliance: MyString
+  tstart: 2015-03-30 11:53:04
+  tend: 2015-03-30 11:53:04
+
+two:
+  appliance: MyString
+  tstart: 2015-03-30 11:53:04
+  tend: 2015-03-30 11:53:04

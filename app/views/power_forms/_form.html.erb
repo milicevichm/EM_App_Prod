@@ -1,0 +1,32 @@
+<%= form_for(@power_form) do |f| %>
+  <% if @power_form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@power_form.errors.count, "error") %> prohibited this power_form from being saved:</h2>
+
+      <ul>
+      <% @power_form.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Select appliance to disaggregate" %><br>
+    <%= f.select :appliance, options_for_select([["Fridge", "fridge"], ["Dish Washer", "dish_washer"], ["Sockets(1)", "sockets1"], ["Sockets(2)", "sockets2"],
+        ["Lights(1)","light1"], ["Microwave","microwave"], ["Electric Space Heater","electric_space_heater"],["Electric Stove","electric_stove"],
+        ["Sockets(3)","sockets3"],["Sockets(4)","sockets4"],["Lights(2)","light2"],["Lights(3)","light3"],["Washer Dryer","washer_dryer"],["Electric Oven","electric_oven"]]) %>
+  </div>
+  <div class="field">
+    <%= f.label "Start time and date" %><br>
+    <%= f.datetime_select :tstart, :start_year => 2011, :end_year => 2011 , :default => DateTime.new(2011,04,18,9,22)%>
+  </div>
+  <div class="field">
+    <%= f.label "End time and date" %><br>
+    <%= f.datetime_select :tend, :start_year => 2011, :end_year => 2011, :default => DateTime.new(2011,05,24,15,57)%>
+  </div>
+  <div class="actions">
+    <br>
+    <%= f.submit "Disaggregate" %>
+  </div>
+<% end %>

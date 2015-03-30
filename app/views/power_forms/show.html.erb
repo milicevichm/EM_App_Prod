@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Appliance:</strong>
+  <%= @power_form.appliance %>
+</p>
+
+<p>
+  <strong>Tstart:</strong>
+  <%= @power_form.tstart %>
+</p>
+
+<p>
+  <strong>Tend:</strong>
+  <%= @power_form.tend %>
+</p>
+
+<%= link_to 'Edit', edit_power_form_path(@power_form) %> |
+<%= link_to 'Back', power_forms_path %>
