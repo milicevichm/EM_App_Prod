@@ -16,10 +16,10 @@ from nilmtk import HDFDataStore, DataSet, TimeFrame, MeterGroup
 from nilmtk.disaggregate import CombinatorialOptimisation
 import warnings
 
-redd_fp = '/home/group20/data/redd_data.h5'
-output_fp = '/home/group20/data/redd_output.h5'
-disag_fp = '/home/group20/data/disag_output.csv'
-mains_fp = '/home/group20/data/mains_sum.csv'
+redd_fp = '/home/mike/workspace/data/redd_data.h5'
+output_fp = '/home/mike/workspace/data/redd_output.h5'
+disag_fp = '/home/mike/workspace/data/disag_output.csv'
+mains_fp = '/home/mike/workspace/data/mains_sum.csv'
 
 
 #supress warnings to users console
@@ -102,8 +102,8 @@ output_csv2.write(mains_sum.to_csv())
 redd_data.store.close()
 outputData.store.close()
 
-#flag = open('script_ran.txt','w')
-#flag.close()
+flag = open('script_ran.txt','w')
+flag.close()
 
 sys.exit(100)
 
