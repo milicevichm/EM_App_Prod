@@ -14,13 +14,6 @@
 
 
 
-    <div id="charts">
-      <%= area_chart(MAINS_CSV, {library:{hAxis:{title:"Time"}, vAxis:{title:"Apparent Power [VA]"}, title:"Building Mains Power"}} )%>
-
-      <%= area_chart(DISAG_CSV,
-                     {library:{hAxis:{title:"Time"}, vAxis:{title:"Apparent Power [VA]"}, title:"Disaggregated Appliance Power"}} )%>
-    </div>
-
     <div id = "input_form">
 
       <div style="height: 50px; clear: both;"></div>
