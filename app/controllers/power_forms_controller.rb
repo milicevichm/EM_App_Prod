@@ -17,31 +17,31 @@ class PowerFormsController < ApplicationController
     appliance = @power_form.appliance
     tstart = @power_form.tstart.strftime("%Y%m%d-%H%M")
     tend = @power_form.tend.strftime("%Y%m%d-%H%M")
-    call = "/home/mike/anaconda/bin/python2.7 script.py "+appliance+" "+tstart+" "+tend
+    call = "/home/group20/anaconda/bin/python2.7 script.py "+appliance+" "+tstart+" "+tend
 
     system(call)
 
 
     #load parameters here
-    disag = CSV.read('/home/mike/workspace/data/disag_output.csv')
+    disag = CSV.read('/home/group20/data/disag_output.csv')
     disag_hash = Hash[disag]
     @disag = disag_hash
 
-    mains = CSV.read('/home/mike/workspace/data/mains_sum.csv')
+    mains = CSV.read('/home/group20/data/mains_sum.csv')
     mains_hash = Hash[mains]
     @mains = mains_hash
 
     @chart_title = "Disaggregated "+@power_form.appliance.gsub("_"," ").capitalize+" Power"
 
-    f1_scores = CSV.read('/home/mike/workspace/data/f1_results.csv')
+    f1_scores = CSV.read('/home/group20/data/f1_results.csv')
     @f1_score = f1_scores
 
-    en_per_meter = CSV.read('/home/mike/workspace/data/pred_results.csv')
+    en_per_meter = CSV.read('/home/group20/data/pred_results.csv')
     @en_per_meter = en_per_meter
 
     total_energy = 0
 
-    t_en_file = File.open('/home/mike/workspace/data/total_energy.txt','r')
+    t_en_file = File.open('/home/group20/data/total_energy.txt','r')
     t_en_file.each_line do |line|
       total_energy = line
     end
