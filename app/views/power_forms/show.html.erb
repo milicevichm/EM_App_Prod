@@ -4,11 +4,10 @@
 
   <div class="center">
 
-    <h1>Energy Management through Power Disaggregation</h1>
+    <h1>Appliance Disaggregation Results</h1>
 
-    <div style="height: 30px; clear: both;"></div>
+    <div style="height: 10px; clear: both;"></div>
 
-    <h2>This is the home page for the design project of Group 20 in ECSE 457.</h2>
 
     <body>
 
@@ -21,9 +20,15 @@
 
     </div>
 
+
+
+    <h1>Disaggregation Metrics</h1>
+
+    <div style= "height: 30px; clear: both;"></div>
+
     <div id="l_metrics">
 
-      left
+      <%= pie_chart(@en_per_meter, {library:{title:"Energy Used Per Appliance"}}) %>
 
       <div style="height: 265px; clear: both;"></div>
 
@@ -31,9 +36,9 @@
 
     <div id = "r_metrics">
 
-      right
+      <%= bar_chart(@f1_score , {library:{hAxis:{title:"Score"}, vAxis:{title:"Appliance"}, title:"F1 Accuracy Score per Appliance"}} ) %>
 
-      <div style="height: 265px; clear: both;"></div>
+      <div style="height: 100px; clear: both;"></div>
 
     </div>
 

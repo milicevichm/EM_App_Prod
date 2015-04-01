@@ -15,12 +15,19 @@ from nilmtk.metrics import *
 from nilmtk import HDFDataStore, DataSet, TimeFrame, MeterGroup
 from nilmtk.disaggregate import CombinatorialOptimisation
 import warnings
+import csv
+import time
 
-redd_fp = '/home/mike/workspace/data/redd_data.h5'
-output_fp = '/home/mike/workspace/data/redd_output.h5'
-disag_fp = '/home/mike/workspace/data/disag_output.csv'
-mains_fp = '/home/mike/workspace/data/mains_sum.csv'
+home_dir = '/home/mike/workspace'
+#home_dir = '/home/group20' #for server implementation
 
+redd_fp = home_dir+'/data/redd_data.h5'
+output_fp = home_dir+'/data/redd_output.h5'
+disag_fp = home_dir+'/data/disag_output.csv'
+mains_fp = home_dir+'/data/mains_sum.csv'
+f1_fp = home_dir+"/data/f1_results.csv"
+pred_fp = home_dir+"/data/pred_results.csv"
+total_en_fp = home_dir+"/data/total_energy.txt"
 
 #supress warnings to users console
 warnings.filterwarnings("ignore")
@@ -40,6 +47,7 @@ disag_appliance = sys.argv[1]
 t1 = parser.parse(sys.argv[2])
 t2 = parser.parse(sys.argv[3])
 
+print (t1)
 
 # to add:
 #			1) load REDD data from database (SQL interface)*
@@ -60,7 +68,7 @@ building_mains = redd_data.buildings[1].elec.mains()
 
 #train disaggregation set
 co = CombinatorialOptimisation()
-training_set = redd_data.buildings[1].elec
+training_set = redd_data.buildings[1].elec.select_top_k(15)
 co.train(training_set)
 
 #set output datastore
@@ -97,6 +105,77 @@ output_csv1.write(output_csv_store.to_csv())
 
 output_csv2 = open(mains_fp,'w')
 output_csv2.write(mains_sum.to_csv())
+
+#METRICS -------------------------------------------------
+
+
+
+outputDataset = DataSet(output_fp)
+
+t1_f = str(t1)+"-4:00"
+t2_f = str(t2)+"-4:00"
+#set time windows
+redd_data.store.window = TimeFrame(start=t1_f, end=t2_f)
+outputDataset.store.window = TimeFrame(start=t1_f, end=t2_f)
+
+
+ground_truth = redd_data.buildings[1].elec
+predictions = outputDataset.buildings[1].elec
+
+disag_f1_score = f1_score(predictions,ground_truth)
+
+f1_dict = {}
+f1_dict['Fridge'] = disag_f1_score[0]
+f1_dict['Dish Washer'] = disag_f1_score[1]
+f1_dict['Sockets (1)'] = disag_f1_score[2]
+f1_dict['Sockets (2)'] = disag_f1_score[3]
+f1_dict['Lights (1)'] = disag_f1_score[4]
+f1_dict['Microwave'] = disag_f1_score[5]
+f1_dict['Unknown'] = disag_f1_score[6]
+f1_dict['Sockets (3)'] = disag_f1_score[7]
+f1_dict['Lights (2)'] = disag_f1_score[8]
+f1_dict['Lights (3)'] = disag_f1_score[9]
+f1_dict['Electric Oven'] = disag_f1_score[10]
+f1_dict['Washer Dryer'] = disag_f1_score[11]
+
+w = csv.writer(open(f1_fp,"wb"))
+for key,value in f1_dict.items():
+	w.writerow([key,value])
+print('wrote1')
+
+pred_total = 0
+
+pred_dict = {}
+
+pred_dict['Fridge'] = float(predictions.__getitem__(5).total_energy())
+pred_dict['Dish Washer'] = float(predictions.__getitem__(6).total_energy())
+pred_dict['Sockets (1)'] = float(predictions.__getitem__(7).total_energy())
+pred_dict['Sockets (2)'] = float(predictions.__getitem__(8).total_energy())
+pred_dict['Lights (1)'] = float(predictions.__getitem__(9).total_energy())
+pred_dict['Microwave'] = float(predictions.__getitem__(11).total_energy())
+pred_dict['Unknown'] = float(predictions.__getitem__(12).total_energy())
+pred_dict['Sockets (3)'] = float(predictions.__getitem__(15).total_energy())
+pred_dict['Lights (2)'] = float(predictions.__getitem__(17).total_energy())
+pred_dict['Lights (3)'] = float(predictions.__getitem__(18).total_energy())
+pred_dict['Electric Oven'] = float(predictions.__getitem__(3).total_energy())
+pred_dict['Washer Dryer'] = float(predictions.__getitem__(10).total_energy())
+
+
+for key,value in pred_dict.items():
+ 	pred_total = pred_total + value
+
+
+w = csv.writer(open(pred_fp,"wb"))
+for key,value in pred_dict.items():
+	w.writerow([key,value])
+print('wrote2')
+
+f = open (total_en_fp,"w")
+f.write(repr(pred_total))
+f.close()
+print('wrote3')
+
+#-------------------------------------------------------
 
 #Close open datastores
 redd_data.store.close()

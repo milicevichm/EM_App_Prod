@@ -116,7 +116,7 @@ footer ul li {
 /* home page */
 
 #charts{
-  width: 1200px;
+  width: 100%;
 }
 
 
@@ -129,14 +129,14 @@ footer ul li {
 #l_metrics{
 
   float: left;
-  width: 550px;
+  width: 50%;
 
 }
 
 #r_metrics{
 
   float: right;
-  width: 550px;
+  width: 50%;
 }
 
 #top_wrap{
@@ -150,12 +150,14 @@ footer ul li {
   width: 50%;
   font-size: large;
   text-indent: 55px;
+  display: none;
 }
 
 #right_wrap{
   float: right;
   width: 50%;
   text-align:right;
+  display: none;
 }
 
 //#loading{

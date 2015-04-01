@@ -33,6 +33,22 @@ class PowerFormsController < ApplicationController
 
     @chart_title = "Disaggregated "+@power_form.appliance.gsub("_"," ").capitalize+" Power"
 
+    f1_scores = CSV.read('/home/mike/workspace/data/f1_results.csv')
+    @f1_score = f1_scores
+
+    en_per_meter = CSV.read('/home/mike/workspace/data/pred_results.csv')
+    @en_per_meter = en_per_meter
+
+    total_energy = 0
+
+    t_en_file = File.open('/home/mike/workspace/data/total_energy.txt','r')
+    t_en_file.each_line do |line|
+      total_energy = line
+    end
+    t_en_file.close()
+
+    @total_energy = total_energy
+
   end
 
   # GET /power_forms/new
