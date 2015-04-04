@@ -23,7 +23,8 @@
     <%= f.label :endtime %><br>
     <%= f.datetime_select :endtime %>
   </div>
-  <div class="actions">
+  <div class="actions" onclick="$('#loading').show();">
     <%= f.submit "Submit" %>
   </div>
+  <div id="loading" style="display:none;"><img src="/images/ajax-loader.gif" alt="" />Loading!</div>
 <% end %>
