@@ -18,8 +18,10 @@ import warnings
 import csv
 import time
 
-#home_dir = '/home/mike/workspace'
-home_dir = '/home/group20' #for server implementation
+t_start = time.time()
+
+home_dir = '/home/mike/workspace'
+#home_dir = '/home/group20' #for server implementation
 
 redd_fp = home_dir+'/data/redd_data.h5'
 output_fp = home_dir+'/data/redd_output.h5'
@@ -28,6 +30,7 @@ mains_fp = home_dir+'/data/mains_sum.csv'
 f1_fp = home_dir+"/data/f1_results.csv"
 pred_fp = home_dir+"/data/pred_results.csv"
 total_en_fp = home_dir+"/data/total_energy.txt"
+total_time_fp = home_dir+"/data/total_time.txt"
 
 #supress warnings to users console
 warnings.filterwarnings("ignore")
@@ -141,7 +144,6 @@ f1_dict['Washer Dryer'] = disag_f1_score[11]
 w = csv.writer(open(f1_fp,"wb"))
 for key,value in f1_dict.items():
 	w.writerow([key,value])
-print('wrote1')
 
 pred_total = 0
 
@@ -164,16 +166,20 @@ pred_dict['Washer Dryer'] = float(predictions.__getitem__(10).total_energy())
 for key,value in pred_dict.items():
  	pred_total = pred_total + value
 
-
 w = csv.writer(open(pred_fp,"wb"))
 for key,value in pred_dict.items():
 	w.writerow([key,value])
-print('wrote2')
 
 f = open (total_en_fp,"w")
 f.write(repr(pred_total))
 f.close()
-print('wrote3')
+
+total_time = time.time() - t_start
+
+f = open (total_time_fp,"w")
+f.write(repr(total_time))
+f.close()
+
 
 #-------------------------------------------------------
 

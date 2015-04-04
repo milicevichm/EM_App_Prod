@@ -1,6 +1,6 @@
 <% provide(:title, "Home") %>
 
-<div id = 'wrap'>
+
 
   <div class="center">
 
@@ -8,45 +8,57 @@
 
     <div style="height: 10px; clear: both;"></div>
 
-
     <body>
+        <div style = "width: 100%; ">
+            <div id="charts">
+
+              <%= area_chart(@mains, {library:{hAxis:{title:"Time"}, vAxis:{title:"Apparent Power [VA]"}, title:"Building Mains Power"}} )%>
+
+              <%= area_chart(@disag, {library:{hAxis:{title:"Time"}, vAxis:{title:"Active Power [kW]"}, title: @chart_title}} )%>
+
+            </div>
 
 
-    <div id="charts">
 
-      <%= area_chart(@mains, {library:{hAxis:{title:"Time"}, vAxis:{title:"Apparent Power [VA]"}, title:"Building Mains Power"}} )%>
+            <h1>Disaggregation Metrics</h1>
 
-      <%= area_chart(@disag, {library:{hAxis:{title:"Time"}, vAxis:{title:"Apparent Power [VA]"}, title: @chart_title}} )%>
-
-    </div>
+            <div style= "height: 30px; clear: both;"></div>
 
 
+            <div id="l_metrics">
 
-    <h1>Disaggregation Metrics</h1>
+              <%= pie_chart(@en_per_meter, {library:{title:"Total Energy Used Per Appliance [kWh]"}}) %>
 
-    <div style= "height: 30px; clear: both;"></div>
+              <div style="height:50px; clear: both;"></div>
 
-    <div id="l_metrics">
+                <div style = "text-align: center; font-size: large;">
+                    Total predicted energy used [kWh] by the building: <%= @total_energy %>
+                </div>
 
-      <%= pie_chart(@en_per_meter, {library:{title:"Energy Used Per Appliance"}}) %>
 
-      <div style="height: 265px; clear: both;"></div>
+            </div>
 
-    </div>
+            <div id = "r_metrics">
 
-    <div id = "r_metrics">
+              <%= bar_chart(@f1_score , {library:{hAxis:{title:"Score"}, vAxis:{title:"Appliance"}, title:"F1 Accuracy Score per Appliance"}} ) %>
 
-      <%= bar_chart(@f1_score , {library:{hAxis:{title:"Score"}, vAxis:{title:"Appliance"}, title:"F1 Accuracy Score per Appliance"}} ) %>
+              <div style="height:50px; clear: both;"></div>
 
-      <div style="height: 100px; clear: both;"></div>
+                <div style = "text-align: center; font-size: large;">
+                    Total disaggregation script processing time [s]: <%= @total_time %>
+                </div>
 
-    </div>
+            </div>
 
+          <div style="height:30px; clear: both;"></div>
+
+        </div>
     </body>
+
+
 
   </div>
 
-</div>
 
-<div id = "back_link"><%= link_to 'Back', power_forms_path %></div>
+
 

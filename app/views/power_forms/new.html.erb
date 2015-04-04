@@ -1,24 +1,63 @@
 
 <div id="wrap">
 
-  <h1>ECSE 457 Design Project Group 20: Energy Management Through Power Disaggregation</h1>
+  <h1>Energy Management Through Power Disaggregation</h1>
 
-  <div style= "height: 80px; clear: both;"></div>
+  <div style= "height: 30px; clear: both;"></div>
 
     <div class = "center">
+
+        <div style = "font-size: large; text-align: left; float: left; width: 40%; padding-top: 20px;">
+
+
+          Welcome to the home page of the <i>Energy Management through Power Disaggregation</i> design project.
+          This page will run a disaggregation algorithm on the total power usage measurements of
+          a <a href="http://redd.csail.mit.edu/">real residential building</a>.This disaggregation will then estimate
+          the total power used by the appliance chosen, giving an accurate representation without the
+          need to connect a physical meter to the line.
+
+          <br>
+          <br>
+
+          To get started, please select your parameters
+          and use the form below. For more information about the project motivations, team, and theory please visit our
+          <a href="ecse-457.ece.mcgill.ca/static_pages/about" > about page</a>.
+
+        </div>
+
+      <div style = "text-align: center; float: right; width: 60%;">
+
+        <figure>
+          <img src="assets/hart.png", style="width:659px; height:358px;">
+          <figcaption style="text-align: center; text-indent: 0px;">
+            <i><b>
+              Individual appliance load contributions on an aggregate signal (Hart, 1992)
+          </b></i></figcaption>
+        </figure>
+
+      </div>
+
+        <div style= "height: 60px; clear: both;"></div>
+
+      <h1>Disaggregation Parameters</h1>
+
+      <div style= "height: 50px; clear: both;"></div>
 
         <div id = "top_wrap">
 
             <div id="left_wrap">
 
+              To begin please select the appliance of which you wish to see the disaggregated power usage signal. As
+              the system is using a static dataset, please only choose date and time ranges of between
+              <b>2011-April-18 09:22</b> and <b>2011-May-24 15:57</b>.
+
             </div>
 
 
             <div id="right_wrap">
-              <figure>
-                <img src="assets/hart.png",style="width: 659px ,height: 358px;">
-                <figcaption style="text-align: right; text-indent: 70px;">Individual appliance load contributions on an aggregate power signal (Hart, 1992)</figcaption>
-              </figure>
+
+              <%= render 'form' %>
+
             </div>
 
           <div style= "height: 50px; clear: both;"></div>
@@ -26,10 +65,9 @@
         </div>
 
 
-        <%= render 'form' %>
-
-
     </div>
 </div>
+
+<div id = "loading"></div>
 
 

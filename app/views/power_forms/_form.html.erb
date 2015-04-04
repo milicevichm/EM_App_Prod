@@ -25,10 +25,9 @@ stance=10, bui
     <%= f.label "End time and date" %><br>
     <%= f.datetime_select :tend, :start_year => 2011, :end_year => 2011, :default => DateTime.new(2011,05,24,15,57)%>
   </div>
-  <div class="actions">
-    <br>
 
-    <%= f.submit "Disaggregate" %>
+    <div class="actions">
+      <%= f.submit "Disaggregate", :onclick => "$('#loading').show();"%>
+    </div>
 
-  </div>
 <% end %>

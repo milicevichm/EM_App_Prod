@@ -64,13 +64,14 @@ p {
   color: #EFEFEF;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding-top: 15px;
   font-weight: bold;
 
 }
 
 #logo:hover {
   color: #fff;
+  padding-top: 15px;
   text-decoration: none;
 }
 
@@ -97,6 +98,7 @@ footer {
   padding-top: 5px;
   Border-top: 1px solid #eaeaea;
   color: #777;
+  width: 100%;
 }
 
 footer small {
@@ -147,31 +149,33 @@ footer ul li {
 #left_wrap{
   float: left;
   text-align: left;
-  width: 50%;
-  font-size: large;
-  text-indent: 55px;
-  display: none;
+  width: 40%;
+  font-size: medium;
+  //display: none;
 }
 
 #right_wrap{
   float: right;
-  width: 50%;
-  text-align:right;
-  display: none;
+  width: 30%;
+  text-align:left;
+  //display: none;
 }
 
-//#loading{
-//  //display:    none;
-//  position:   fixed;
-//  z-index:    1000;
-//  top:        0;
-//  left:       0;
-//  height:     100%;
-//  width:      100%;
-//  background: rgba( 255, 255, 255, .8 )
-//  url('ajax-loader.gif')
-//  50% 50%
-//  no-repeat;
-//
-//}
+#loading{
+  display:    none;
+  position:   fixed;
+  z-index:    1000;
+  top:        0;
+  left:       0;
+  height:     100%;
+  width:      100%;
+  background: rgba( 255, 255, 255, .8 )
+  url('ajax-loader.gif')
+  50% 50%
+  no-repeat;
 
+}
+
+#form_wrap{
+  width : 100%;
+}
