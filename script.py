@@ -20,8 +20,8 @@ import time
 
 t_start = time.time()
 
-home_dir = '/home/mike/workspace'
-#home_dir = '/home/group20' #for server implementation
+#home_dir = '/home/mike/workspace'
+home_dir = '/home/group20' #for server implementation
 
 redd_fp = home_dir+'/data/redd_data.h5'
 output_fp = home_dir+'/data/redd_output.h5'
