@@ -7,21 +7,23 @@
 
     <div class = "center">
 
-        <div style = "font-size: large; text-align: left; float: left; width: 40%; padding-top: 20px;">
+        <div style = "font-size: medium; text-align: left; float: left; width: 40%; padding-top: 20px;">
 
 
-          Welcome to the home page of the <i>Energy Management through Power Disaggregation</i> design project.
-          This page will run a disaggregation algorithm on the total power usage measurements of
-          a <a href="http://redd.csail.mit.edu/">real residential building</a>.This disaggregation will then estimate
-          the total power used by the appliance chosen, giving an accurate representation without the
-          need to connect a physical meter to the line.
+          Welcome to the home page of the <b><i>Energy Management through Power Disaggregation</i></b> design project.
+          This web application will run a disaggregation algorithm on the total power usage measurements of
+          a real residential building, <a href="http://redd.csail.mit.edu/">whose dataset is provided from researchers at MIT</a>.
+          This disaggregation will estimate the total power used by the selected household appliance, giving an accurate representation of
+          individual power consumption without the need to connect a physical sub-meter to the system.
 
           <br>
           <br>
 
-          To get started, please select your parameters
-          and use the form below. For more information about the project motivations, team, and theory please visit our
-          <a href="ecse-457.ece.mcgill.ca/static_pages/about" > about page</a>.
+          To get started, please select your disaggregation parameters
+          using the form below. For more information about the project motivation and team please visit our
+          <a href="ecse-457.ece.mcgill.ca/static_pages/about" > about page</a>. The disaggregation algorithms and processing
+          used in this project are powered through the <a href="http://nilmtk.github.io/">Non-Intrusive Load-Monitoring Toolkit (NILMTK) </a>,
+          an open source Python framework that utilizes machine-learning to find the best possible disaggregation results.
 
         </div>
 
@@ -50,6 +52,10 @@
               To begin please select the appliance of which you wish to see the disaggregated power usage signal. As
               the system is using a static dataset, please only choose date and time ranges of between
               <b>2011-April-18 09:22</b> and <b>2011-May-24 15:57</b>.
+
+              <br><br>
+              <b>Warning:</b> Depending on server load and internet connection, the process can take anywhere from <u>20-90</u>
+              seconds.
 
             </div>
 
