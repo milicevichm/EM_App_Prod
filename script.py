@@ -20,8 +20,8 @@ import time
 
 t_start = time.time()
 
-#home_dir = '/home/mike/workspace'
-home_dir = '/home/group20' #for server implementation
+home_dir = '/home/mike/workspace'
+#home_dir = '/home/group20' #for server implementation
 
 redd_fp = home_dir+'/data/redd_data.h5'
 output_fp = home_dir+'/data/redd_output.h5'
@@ -80,6 +80,8 @@ outputData = HDFDataStore(output_fp,'w')
 
 #disaggregate
 co.disaggregate(building_mains,outputData)
+
+print (outputData.store.keys())
 
 #set sub-datastore for CSV outputs
 output_csv_store = outputData.store.__getitem__(km.get_key(disag_appliance))

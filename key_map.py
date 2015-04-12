@@ -57,8 +57,8 @@ class Key_Map(object):
 			self.map['light2'] ='/building1/elec/meter17' 
 			self.map['light3'] ='/building1/elec/meter18' 
 			self.map['unknown2'] ='/building1/elec/meter19'
-			self.map['washer_dryer'] ='/building1/elec/meter10_20'
-			self.map['electric_oven'] ='/building1/elec/meter3_4'
+			self.map['washer_dryer'] ='/building1/elec/meter(10, 20)'
+			self.map['electric_oven'] ='/building1/elec/meter(3, 4)'
 
 		elif building == 2:
 			self.map['mains'] = '/building2/elec/meter1_2'
